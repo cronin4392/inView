@@ -51,12 +51,12 @@
 			window.addEventListener('load', function() {
 				for(var i=0; i<el.length; i++) {
 					var inV = new inView(el[i]);
-					inV.onInView(function() {
-						console.log("IN VIEW");
-					});
-					inV.onOutView(function() {
-						console.log("OUT OF VIEW");
-					});
+					inV.onInView((function(i) {
+						console.log("IN VIEW "+i);
+					}).bind(this, i));
+					inV.onOutView((function(i) {
+						console.log("OUT OF VIEW "+i);
+					}).bind(this, i));
 				}
 			});
 		</script>
